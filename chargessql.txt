@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS charges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    charge_amount DECIMAL(10, 2) NOT NULL,
+    review_text TEXT,
+    charge_date DATE NOT NULL,
+    day VARCHAR(15) NOT NULL,  -- Removed the generated column
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
